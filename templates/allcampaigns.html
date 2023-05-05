@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1px" style="width: 97%; text-align: center; font-size: 20px;" >
+        <tr>
+            <th>Campaign id</th>
+            <th>Campaign name</th>
+            <th>Created by</th>
+            <th>description</th>
+            <th>funds required</th>
+            <th>funds collected</th>
+            <th>Documents</th>
+            <th>Date created</th>
+            <th>Status</th>
+        </tr>
+        {% for i in cids %}
+        <tr>
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+            <td>{{i[2]}}</td>
+            <td>{{i[3]}}</td>
+            <td>{{i[4]}}</td>
+            <td>{{i[5]}}</td>
+            <td><a href="{{url_for('viewfile',cid=i[0])}}">view</a></td>
+            <td>{{i[8]}}</td>
+            {% if session.get('admin') %}
+                {% if i[9]=='Not Approved' %}
+                    <td><a href="{{url_for('approve',cid=i[0])}}">click here to approve</a></td>
+                {% else %}
+                    <td>{{i[9]}}</td>
+                {% endif %}
+            {% else %}
+                <td>{{i[9]}}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+     </table>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Record</title>
+    <style>
+        *{
+            font-family:Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        .btnstyle{
+            background-color:purple;
+            color:black;
+            padding:10px;
+            border-radius: 8px;
+            border:none;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>Campaign</h1><br>
+<p><h2>Enter your Campaign details</h2></p>
+<form action="{{url_for('campaigns')}}" method="POST" enctype="multipart/form-data">
+    <label>Name</label>
+    <p><input type="text" placeholder="Enter your Name" name="name"></p>
+    <label>Description</label>
+    <p><input type="text" placeholder="Description" name="description"></p>
+    <label>Toatal Fund</label>
+    <p><input type="text"placeholder="toatal fund" name="fund"></p>
+    <label>Fund Raised</label>
+    <p><input type="text"placeholder="fundraised" name="fundraised"></p>
+</form>
+
+</body>
+</html>

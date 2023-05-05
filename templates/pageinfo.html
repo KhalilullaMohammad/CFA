@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Campaign</title>
+    <style>
+      .para{
+        background-size: bold;
+        font-weight: 50px;
+        font-size: 25px;
+      
+      }
+      .body img{
+        display:'flex';
+        justify-content: center;
+        align-items: center;
+      }
+      .share{
+        margin-left: 80%;
+        font-size: bold;
+      }
+     
+       
+    </style>
+</head>
+<body>
+	<center><h1>{{data[1]}}</h1>
+        {% set ns=namespace(file='campaigns/'+data[0]+'.jpg') %}
+	<img src='{{url_for("static",filename=ns.file)}}' alt="Image Description" width="400vw" height="400vh"/></center>
+	<p class="para">
+        {{data[2]}}
+    </p>
+        <a href=""><button>Donate</button></a>
+        <a href="{{url_for('viewfile',cid=data[0])}}">View Medical Documents</a>
+     <a href="https://api.whatsapp.com/send?text={{url_for('campaigndetails',cid=data[0],_external=True)}}"><button class="share">Share</button></a>
+</body>
+</html>

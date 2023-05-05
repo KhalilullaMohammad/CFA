@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP validation</title>
+    <style>
+      .a1{
+        color:blueviolet;
+        background-color: blanchedalmond;
+      }
+      .b1{
+        background-color: azure;
+      }.cc1{
+        background-color: greenyellow;
+      }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <form method="POST" action="{{url_for('otp',otp=otp,name=name,username=username,email=email,password=password,mobile=mobile)}}">
+        <center><h1 class="a1">Enter OTP</h1>
+        <p><input class="b1"type="text" name="otp"><br></p>
+        <p><button class="cc1">submit</button></p></center>
+    </form>
+</body>
+</html>
